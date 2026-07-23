@@ -4,140 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Juice Bar Mexica — Fresh Juices &amp; Mexican Kitchen, Brooklyn</title>
-<meta name="description" content="Fresh-squeezed juices, licuados, mangonadas and real Mexican food on Kings Highway, Brooklyn. Open daily 6 AM – 9 PM.">
-<style>
-:root{
-  --sun:#ff9f1c;--chile:#e63946;--lime:#2a9d4a;--pink:#ff5da2;--cream:#fff8ef;
-  --ink:#33231a;--soft:#8a6f5c;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden}
-h1,h2,h3{font-weight:800;letter-spacing:-.01em}
-.wrap{width:min(1100px,92%);margin:0 auto}
-
-/* nav */
-nav{position:fixed;inset:0 0 auto;z-index:100;background:rgba(255,248,239,.93);backdrop-filter:blur(10px);border-bottom:3px solid var(--sun)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
-.logo{text-decoration:none;font-weight:900;font-size:1.15rem;color:var(--ink)}
-.logo .j{color:var(--lime)}.logo .m{color:var(--chile)}
-.nav-links{display:none;gap:1.7rem;list-style:none}
-.nav-links a{text-decoration:none;color:var(--soft);font-weight:600;font-size:.9rem;transition:color .2s}
-.nav-links a:hover{color:var(--chile)}
-.nav-cta{background:var(--chile);color:#fff;text-decoration:none;padding:.55rem 1.2rem;border-radius:99px;font-weight:700;font-size:.85rem;box-shadow:0 4px 0 #b02633;transition:transform .15s,box-shadow .15s}
-.nav-cta:active{transform:translateY(3px);box-shadow:0 1px 0 #b02633}
-@media(min-width:760px){.nav-links{display:flex}}
-
-/* hero */
-.hero{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;background:
- radial-gradient(circle at 85% 15%,rgba(255,159,28,.28),transparent 45%),
- radial-gradient(circle at 10% 85%,rgba(42,157,74,.18),transparent 45%),
- radial-gradient(circle at 70% 90%,rgba(255,93,162,.15),transparent 40%),var(--cream)}
-.fruits{position:absolute;inset:0;pointer-events:none}
-.fruit{position:absolute;opacity:.85;animation:bob 5s ease-in-out infinite;filter:drop-shadow(0 8px 12px rgba(51,35,26,.15))}
-@keyframes bob{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-18px) rotate(8deg)}}
-.hero-in{position:relative;padding:7rem 0 5rem}
-.hero .tag{display:inline-block;background:var(--lime);color:#fff;font-weight:800;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;padding:.45rem 1.1rem;border-radius:99px;transform:rotate(-2deg);margin-bottom:1.2rem}
-.hero h1{font-size:clamp(2.8rem,10vw,5.5rem);line-height:1.02}
-.hero h1 .fresh{color:var(--sun);display:block}
-.hero h1 .real{color:var(--chile)}
-.hero p{max-width:32rem;color:var(--soft);font-size:1.1rem;margin:1.2rem 0 2rem;font-weight:500}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 1.8rem;border-radius:99px;text-decoration:none;font-weight:800;font-size:1rem;transition:transform .15s,box-shadow .15s}
-.btn-sun{background:var(--sun);color:#3d2600;box-shadow:0 5px 0 #cc7d12}
-.btn-sun:active{transform:translateY(4px);box-shadow:0 1px 0 #cc7d12}
-.btn-out{border:3px solid var(--ink);color:var(--ink);box-shadow:0 5px 0 var(--ink)}
-.btn-out:active{transform:translateY(4px);box-shadow:0 1px 0 var(--ink)}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem}
-.hero-open{margin-top:2.6rem;display:inline-flex;align-items:center;gap:.6rem;background:#fff;border:2px dashed var(--lime);border-radius:14px;padding:.7rem 1.2rem;font-weight:700;color:var(--lime)}
-
-/* ticker */
-.ticker{background:var(--chile);color:#fff;overflow:hidden;padding:.7rem 0;transform:rotate(-1deg) scale(1.02)}
-.ticker-track{display:flex;gap:2.5rem;width:max-content;animation:roll 22s linear infinite;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem;white-space:nowrap}
-@keyframes roll{to{transform:translateX(-50%)}}
-
-section{padding:4.5rem 0}
-.eyebrow{color:var(--chile);font-weight:800;letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;margin-bottom:.5rem}
-.sec-title{font-size:clamp(2rem,6vw,2.9rem);margin-bottom:.7rem}
-.sec-sub{color:var(--soft);max-width:36rem;margin-bottom:2.4rem;font-weight:500}
-
-/* juice cards */
-.j-grid{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr)}
-@media(min-width:760px){.j-grid{grid-template-columns:repeat(4,1fr)}}
-.jcard{border-radius:22px;padding:1.5rem 1.1rem;text-align:center;color:#fff;position:relative;overflow:hidden;transition:transform .3s}
-.jcard:hover{transform:translateY(-6px) rotate(-1deg)}
-.jcard .emoji{font-size:2.6rem;display:block;margin-bottom:.6rem}
-.jcard h3{font-size:1.05rem}
-.jcard p{font-size:.8rem;opacity:.9;margin:.3rem 0 .6rem}
-.jcard .p{font-weight:900;font-size:1.1rem;background:rgba(255,255,255,.25);border-radius:99px;padding:.2rem .9rem;display:inline-block}
-.c1{background:linear-gradient(160deg,#ff9f1c,#f07300)}
-.c2{background:linear-gradient(160deg,#2a9d4a,#1c7a37)}
-.c3{background:linear-gradient(160deg,#ff5da2,#e63975)}
-.c4{background:linear-gradient(160deg,#e63946,#c1121f)}
-
-/* food menu */
-.food{background:#fff;border-radius:26px;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--sun);padding:2rem 1.4rem}
-@media(min-width:760px){.food{padding:2.6rem}}
-.food-cols{display:grid;gap:2rem}
-@media(min-width:760px){.food-cols{grid-template-columns:1fr 1fr}}
-.food h3{color:var(--chile);text-transform:uppercase;letter-spacing:.12em;font-size:.9rem;border-bottom:3px solid var(--sun);padding-bottom:.5rem;margin-bottom:.9rem}
-.fi{display:flex;justify-content:space-between;gap:.8rem;padding:.55rem 0;align-items:baseline}
-.fi .n{font-weight:700}
-.fi .d{display:block;font-weight:500;color:var(--soft);font-size:.82rem}
-.fi .p{font-weight:900;color:var(--lime);white-space:nowrap}
-.star-dish{background:var(--cream);border-radius:14px;padding:.7rem .9rem;margin:.3rem -0.9rem}
-.star-dish .badge{background:var(--chile);color:#fff;font-size:.65rem;font-weight:800;letter-spacing:.08em;border-radius:99px;padding:.15rem .6rem;text-transform:uppercase;vertical-align:2px;margin-left:.4rem}
-
-/* why */
-.why-grid{display:grid;gap:1rem}
-@media(min-width:760px){.why-grid{grid-template-columns:repeat(3,1fr)}}
-.why{background:#fff;border-radius:20px;padding:1.6rem;border:2px solid rgba(51,35,26,.08);transition:transform .3s,border-color .3s}
-.why:hover{transform:translateY(-4px);border-color:var(--sun)}
-.why .ico{font-size:2rem;margin-bottom:.6rem}
-.why h3{font-size:1.1rem;margin-bottom:.3rem}
-.why p{color:var(--soft);font-size:.9rem;font-weight:500}
-
-/* visit */
-.visit-grid{display:grid;gap:1.4rem}
-@media(min-width:820px){.visit-grid{grid-template-columns:1fr 1fr}}
-.vcard{background:#fff;border-radius:22px;border:3px solid var(--ink);padding:1.8rem;box-shadow:8px 8px 0 var(--lime)}
-.vcard .row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:2px dotted rgba(138,111,92,.3);font-weight:600;font-size:.95rem}
-.vcard .row:last-child{border:0}
-.vcard .row b{color:var(--chile)}
-.map{border-radius:22px;overflow:hidden;border:3px solid var(--ink);min-height:300px;box-shadow:8px 8px 0 var(--pink)}
-.map iframe{width:100%;height:100%;min-height:300px;border:0}
-
-footer{background:var(--ink);color:#e9dccf;padding:3rem 0 2rem;margin-top:2rem}
-footer .logo{color:#fff;font-size:1.3rem}
-footer .fgrid{display:grid;gap:1.5rem;margin:1.5rem 0}
-@media(min-width:700px){footer .fgrid{grid-template-columns:repeat(3,1fr)}}
-footer a{color:var(--sun);text-decoration:none}
-.demo-note{border-top:1px solid rgba(255,255,255,.15);padding-top:1.2rem;font-size:.75rem;opacity:.6}
-
-.callbar{position:fixed;bottom:0;left:0;right:0;z-index:90;display:flex;background:var(--ink);box-shadow:0 -6px 24px rgba(0,0,0,.25)}
-.callbar a{flex:1;text-align:center;padding:1rem .5rem;color:#fff;text-decoration:none;font-weight:700;font-size:.9rem}
-.callbar .hot{background:var(--chile)}
-@media(min-width:760px){.callbar{display:none}}
-body{padding-bottom:54px}
-@media(min-width:760px){body{padding-bottom:0}}
-
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.fruit,.ticker-track{animation:none}}
-</style>
+<meta name="description" content="Fresh-squeezed juices, licuados, mangonadas and real Mexican food at 906 Kings Highway, Brooklyn. Rated 4.2★. Open daily 6 AM – 9 PM. Dine in, take out, or order on DoorDash, Grubhub &amp; Seamless.">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <nav>
-  <div class="wrap nav-in">
-    <a class="logo" href="#top"><span class="j">JUICE BAR</span> <span class="m">MEXICA</span></a>
-    <ul class="nav-links">
-      <li><a href="#juices">Juices</a></li>
-      <li><a href="#food">Food</a></li>
-      <li><a href="#why">Why Us</a></li>
-      <li><a href="#visit">Visit</a></li>
+  <div class="wrap">
+    <div class="nav-in">
+      <a class="logo" href="index.html"><span class="j">JUICE BAR</span> <span class="m">MEXICA</span></a>
+      <ul class="nav-links">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="visit.html">Visit</a></li>
+      </ul>
+      <a class="nav-cta" href="tel:+17189754480">Order Now</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+    <ul class="nav-mobile">
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="visit.html">Visit</a></li>
     </ul>
-    <a class="nav-cta" href="tel:+17189754480">Order Now</a>
   </div>
 </nav>
 
@@ -149,7 +39,7 @@ body{padding-bottom:54px}
     <p class="reveal d2">From jugos verdes at 6 AM to birria tacos at dinner — everything made to order, right here on Kings Highway.</p>
     <div class="hero-ctas reveal d3">
       <a class="btn btn-sun" href="tel:+17189754480">📞 (718) 975-4480</a>
-      <a class="btn btn-out" href="#food">See the menu</a>
+      <a class="btn btn-out" href="menu.html">See the menu</a>
     </div>
     <div><span class="hero-open reveal d3">🕕 Open daily · 6 AM – 9 PM</span></div>
   </div>
@@ -170,10 +60,11 @@ body{padding-bottom:54px}
       <div class="jcard c3 reveal d2"><span class="emoji">🍓</span><h3>Licuados</h3><p>strawberry, banana, mamey — with milk</p><span class="p">$7</span></div>
       <div class="jcard c4 reveal d3"><span class="emoji">🍉</span><h3>Aguas Frescas</h3><p>horchata, jamaica, tamarindo</p><span class="p">$4</span></div>
     </div>
+    <p style="margin-top:1.8rem" class="reveal"><a class="btn btn-lime" href="menu.html#juices">Full juice menu →</a></p>
   </div>
 </section>
 
-<section id="food">
+<section id="food" style="padding-top:0">
   <div class="wrap">
     <p class="eyebrow reveal">The kitchen</p>
     <h2 class="sec-title reveal">Breakfast to dinner, hecho a mano</h2>
@@ -181,29 +72,40 @@ body{padding-bottom:54px}
     <div class="food reveal">
       <div class="food-cols">
         <div>
-          <h3>🌮 Tacos &amp; Plates</h3>
+          <h3>🌮 Fan favorites</h3>
           <div class="fi star-dish"><span class="n">Tacos de Birria<span class="badge">Fan favorite</span><span class="d">slow-braised beef, consomé for dipping</span></span><span class="p">$5 ea</span></div>
           <div class="fi star-dish"><span class="n">Carnitas en Platillo<span class="badge">Fan favorite</span><span class="d">with rice, beans &amp; tortillas</span></span><span class="p">$14</span></div>
           <div class="fi"><span class="n">Tacos al Pastor / Pollo / Asada</span><span class="p">$4 ea</span></div>
-          <div class="fi"><span class="n">Quesadillas<span class="d">handmade tortilla, your choice of meat</span></span><span class="p">$9</span></div>
-          <div class="fi"><span class="n">Tortas<span class="d">milanesa, cubana, al pastor</span></span><span class="p">$11</span></div>
         </div>
         <div>
-          <h3>🍳 Morning &amp; Snacks</h3>
+          <h3>🍳 Morning &amp; snacks</h3>
           <div class="fi"><span class="n">Desayunos<span class="d">huevos a la mexicana, chilaquiles — from 6 AM</span></span><span class="p">$10</span></div>
           <div class="fi"><span class="n">Fruit Cup con Tajín<span class="d">fresh cut, chamoy &amp; lime</span></span><span class="p">$6</span></div>
           <div class="fi"><span class="n">Esquites<span class="d">corn, mayo, cotija, chile</span></span><span class="p">$5</span></div>
-          <div class="fi"><span class="n">Smoothies<span class="d">any fruit combo you like</span></span><span class="p">$8</span></div>
         </div>
       </div>
+      <p style="margin-top:1.6rem;text-align:center"><a class="btn btn-sun" href="menu.html">See the full menu →</a></p>
     </div>
   </div>
 </section>
 
-<section id="why">
+<section id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow reveal">Word on the block</p>
+    <h2 class="sec-title reveal">The neighborhood keeps coming back</h2>
+    <p class="reveal" style="margin-bottom:2rem"><span class="rating-pill"><span class="n">★ 4.2</span> from 42 Google reviews</span></p>
+    <div class="rev-grid">
+      <div class="rev reveal"><span class="stars">★★★★★</span><blockquote>“Great food and service — all prepared fresh and to order!”</blockquote><cite>— Google review</cite></div>
+      <div class="rev alt1 reveal d1"><span class="stars">★★★★★</span><blockquote>“Friendly staff and tasty food! Ordered the tacos de birria and carnitas en platillo — wasn't disappointed.”</blockquote><cite>— Google review</cite></div>
+      <div class="rev alt2 reveal d2"><span class="stars">★★★★★</span><blockquote>“Very good food. Fresh juices and the real deal on traditional dishes.”</blockquote><cite>— Google review</cite></div>
+    </div>
+  </div>
+</section>
+
+<section id="why" style="padding-top:0">
   <div class="wrap">
     <p class="eyebrow reveal">Why the block loves us</p>
-    <h2 class="sec-title reveal">★ 4.2 on Google</h2>
+    <h2 class="sec-title reveal">Simple reasons, done daily</h2>
     <div class="why-grid">
       <div class="why reveal"><div class="ico">🌅</div><h3>Open at 6 AM</h3><p>First juice on Kings Highway. Grab breakfast before the train, seven days a week.</p></div>
       <div class="why reveal d1"><div class="ico">👨‍👩‍👧</div><h3>Family-run</h3><p>Made to order by people who cook like it's for their own family — because it is.</p></div>
@@ -212,7 +114,7 @@ body{padding-bottom:54px}
   </div>
 </section>
 
-<section id="visit">
+<section id="visit-teaser" style="padding-top:0">
   <div class="wrap">
     <p class="eyebrow reveal">Come hungry</p>
     <h2 class="sec-title reveal">906 Kings Highway</h2>
@@ -221,9 +123,10 @@ body{padding-bottom:54px}
         <h3 style="margin-bottom:.8rem">Hours &amp; info</h3>
         <div class="row"><span>Every day</span><b>6:00 AM – 9:00 PM</b></div>
         <div class="row"><span>Phone</span><b><a href="tel:+17189754480" style="color:var(--chile);text-decoration:none">(718) 975-4480</a></b></div>
-        <div class="row"><span>Dine-in · Takeout</span><b>Sí ✓</b></div>
-        <div class="row"><span>Delivery</span><b>DoorDash · Grubhub</b></div>
+        <div class="row"><span>Dine-in · Takeout · Outdoor seating</span><b>Sí ✓</b></div>
+        <div class="row"><span>Delivery</span><b>DoorDash · Grubhub · Seamless</b></div>
         <div class="row"><span>Cards</span><b>Accepted</b></div>
+        <p style="margin-top:1.2rem"><a class="btn btn-out" href="visit.html">Directions &amp; delivery →</a></p>
       </div>
       <div class="map reveal d1"><iframe loading="lazy" title="Map to Juice Bar Mexica" src="https://www.google.com/maps?q=906+Kings+Hwy,+Brooklyn,+NY+11223&output=embed"></iframe></div>
     </div>
@@ -232,11 +135,12 @@ body{padding-bottom:54px}
 
 <footer>
   <div class="wrap">
-    <a class="logo" href="#top"><span class="j" style="color:var(--lime)">JUICE BAR</span> <span style="color:var(--chile)">MEXICA</span></a>
+    <a class="logo" href="index.html"><span style="color:var(--lime)">JUICE BAR</span> <span style="color:var(--chile)">MEXICA</span></a>
     <div class="fgrid">
-      <div>906 Kings Hwy<br>Brooklyn, NY 11223</div>
-      <div><a href="tel:+17189754480">(718) 975-4480</a><br>Daily 6 AM – 9 PM</div>
-      <div>Jugos · Licuados · Tacos<br>Tortas · Desayunos</div>
+      <div><h4>Find us</h4>906 Kings Hwy<br>Brooklyn, NY 11223</div>
+      <div><h4>Talk to us</h4><a href="tel:+17189754480">(718) 975-4480</a><br>Daily 6 AM – 9 PM</div>
+      <div><h4>Explore</h4><ul><li><a href="menu.html">Menu</a></li><li><a href="about.html">About us</a></li><li><a href="visit.html">Visit &amp; delivery</a></li></ul></div>
+      <div><h4>Order delivery</h4><ul><li><a href="https://www.doordash.com/store/mexican-food-and-juice-bar-brooklyn-1431815/" rel="noopener">DoorDash</a></li><li><a href="https://www.grubhub.com/restaurant/mexican-food-and-juice-bar-906-kings-hwy-brooklyn/2118603" rel="noopener">Grubhub</a></li><li><a href="https://www.seamless.com/menu/mexican-food-and-juice-bar-906-kings-hwy-brooklyn/2118603" rel="noopener">Seamless</a></li></ul></div>
     </div>
     <div class="demo-note">Demo website concept by darstac. Menu items and prices are illustrative placeholders — final menu set by the owners.</div>
   </div>
@@ -247,15 +151,6 @@ body{padding-bottom:54px}
   <a class="hot" href="tel:+17189754480">📞 Order Now</a>
 </div>
 
-<script>
-const tk=document.getElementById('tk');tk.innerHTML+=tk.innerHTML;
-const fr=document.getElementById('fruits');const em=['🍊','🍍','🥭','🍓','🍉','🥑','🌶️','🍋'];
-for(let i=0;i<12;i++){const s=document.createElement('span');s.className='fruit';s.textContent=em[i%em.length];
- s.style.left=Math.random()*94+'%';s.style.top=Math.random()*100+'%';
- s.style.fontSize=(1.2+Math.random()*1.8)+'rem';s.style.opacity=.12+Math.random()*.25;
- s.style.animationDelay=(Math.random()*4)+'s';s.style.animationDuration=(4+Math.random()*4)+'s';fr.appendChild(s)}
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>

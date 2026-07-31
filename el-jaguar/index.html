@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0d0906" />
+<meta name="description" content="El Jaguar Restaurant &amp; Bar — Mexican cantina in Gravesend, Brooklyn. Tacos, margaritas, micheladas y música en vivo. Open nightly 6 PM – 4 AM. 158 Avenue U, Brooklyn, NY 11223." />
+<title>El Jaguar Restaurant &amp; Bar | Cantina Mexicana · Brooklyn · Open til 4 AM</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="El Jaguar Restaurant &amp; Bar — Cantina Mexicana en Brooklyn" />
+<meta property="og:description" content="Tacos, margaritas, micheladas y música en vivo. Open nightly 6 PM – 4 AM on Avenue U, Gravesend." />
+<meta property="og:type" content="restaurant" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://commons.wikimedia.org" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============ RESET ============ */
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+:root {
+  /* La selva de noche: black, jaguar gold, neon pink */
+  --bg: #0d0906;
+  --bg-2: #17100a;
+  --panel: #1d140c;
+  --panel-2: #271a10;
+  --line: #3a2a1a;
+  --cream: #f7ecd9;
+  --gold: #f2a81d;
+  --gold-2: #c9820f;
+  --gold-soft: #ffc451;
+  --pink: #ff2d78;
+  --pink-soft: #ff6ba1;
+  --lime: #b6e34b;
+  --text: #f7ecd9;
+  --muted: #b39a7c;
+  --muted-2: #8a7460;
+  --danger: #e04b3a;
+  --shadow-gold: 0 8px 32px rgba(242, 168, 29, 0.35);
+  --shadow-pink: 0 8px 32px rgba(255, 45, 120, 0.35);
+  --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.55);
+
+  --nav-height: 52px;
+  --section-pad: 40px;
+  --section-pad-x: 18px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bot: env(safe-area-inset-bottom, 0px);
+
+  --font-display: 'Anton', 'Arial Narrow', sans-serif;
+  --font-sub: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--nav-height) + var(--safe-top) + 8px);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+  font-size: 16px;
+  padding-top: calc(var(--nav-height) + var(--safe-top));
+  padding-bottom: calc(64px + var(--safe-bot));
+  min-height: 100vh; min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+
+/* ============ TOP NAV ============ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+  height: calc(var(--nav-height) + var(--safe-top));
+  padding-top: var(--safe-top);
+  display: flex; align-items: center; justify-content: space-between;
+  padding-left: 16px; padding-right: 12px;
+  background: rgba(13, 9, 6, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(242, 168, 29, 0.18);
+}
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 20px; letter-spacing: 1.5px;
+  color: var(--gold);
+  text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-brand .paw {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--gold-soft), var(--gold-2) 70%);
+  position: relative; flex: none;
+  box-shadow: 0 0 12px rgba(242, 168, 29, 0.6);
+}
+.nav-brand .paw::after {
+  content: ""; position: absolute; inset: 4px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, #0d0906 18%, transparent 20%),
+    radial-gradient(circle at 72% 34%, #0d0906 15%, transparent 17%),
+    radial-gradient(circle at 46% 68%, #0d0906 17%, transparent 19%);
+}
+.nav-call {
+  font-family: var(--font-sub);
+  font-weight: 700; font-size: 15px; letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #14100b;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  text-decoration: none;
+  padding: 8px 16px; border-radius: 999px;
+  box-shadow: 0 2px 10px rgba(242, 168, 29, 0.4);
+}
+.nav-call:active { transform: scale(0.96); }
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  min-height: calc(92vh - var(--nav-height));
+  min-height: calc(92dvh - var(--nav-height));
+  display: flex; flex-direction: column; justify-content: flex-end;
+  isolation: isolate;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: -2;
+  background-size: cover; background-position: center 40%;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(13,9,6,0.55) 0%, rgba(13,9,6,0.25) 35%, rgba(13,9,6,0.92) 78%, var(--bg) 100%),
+    radial-gradient(120% 60% at 50% 100%, rgba(255, 45, 120, 0.18), transparent 60%);
+}
+.hero-inner {
+  padding: 0 var(--section-pad-x) 34px;
+  max-width: 640px; margin: 0 auto; width: 100%;
+}
+.hero-kicker {
+  font-family: var(--font-sub);
+  font-weight: 700; font-size: 15px;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--pink-soft);
+  text-shadow: 0 0 14px rgba(255, 45, 120, 0.65);
+  margin-bottom: 6px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 12.5vw, 96px);
+  line-height: 0.95;
+  letter-spacing: 1px;
+  color: var(--cream);
+  text-transform: uppercase;
+}
+.hero h1 .accent {
+  color: var(--gold);
+  text-shadow: 0 0 24px rgba(242, 168, 29, 0.55);
+}
+.hero-sub {
+  font-family: var(--font-sub);
+  font-size: 19px; font-weight: 600;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.hero-sub b { color: var(--cream); font-weight: 600; }
+
+.status-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 16px;
+  font-family: var(--font-sub); font-weight: 700;
+  font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 8px 14px; border-radius: 999px;
+  background: rgba(23, 16, 10, 0.85);
+  border: 1px solid var(--line);
+}
+.status-pill .dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 10px var(--lime);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+.status-pill.closed .dot { background: var(--danger); box-shadow: 0 0 10px var(--danger); animation: none; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+.hero-ctas { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+.hero-ctas .btn-gold { flex: 1 1 100%; }
+.hero-ctas .btn-pink, .hero-ctas .btn-ghost { flex: 1 1 40%; }
+.btn {
+  flex: 1 1 130px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--font-sub); font-weight: 700;
+  font-size: 17px; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 14px 18px; border-radius: 14px;
+  text-decoration: none; text-align: center;
+  border: none; cursor: pointer;
+  transition: transform 0.15s var(--ease-out);
+}
+.btn:active { transform: scale(0.97); }
+.btn-gold { background: linear-gradient(135deg, var(--gold-soft), var(--gold-2)); color: #14100b; box-shadow: var(--shadow-gold); }
+.btn-pink { background: linear-gradient(135deg, var(--pink-soft), var(--pink)); color: #fff; box-shadow: var(--shadow-pink); }
+.btn-ghost { background: transparent; color: var(--cream); border: 1.5px solid var(--line); }
+
+/* ============ TICKER ============ */
+.ticker {
+  overflow: hidden;
+  border-top: 1px solid rgba(242, 168, 29, 0.35);
+  border-bottom: 1px solid rgba(242, 168, 29, 0.35);
+  background: linear-gradient(90deg, rgba(255,45,120,0.10), rgba(242,168,29,0.10));
+  padding: 10px 0;
+}
+.ticker-track {
+  display: flex; gap: 0; width: max-content;
+  animation: ticker 28s linear infinite;
+}
+.ticker span {
+  font-family: var(--font-sub); font-weight: 700;
+  font-size: 16px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold-soft);
+  white-space: nowrap; padding: 0 14px;
+}
+.ticker span:nth-child(even) { color: var(--pink-soft); }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+  html { scroll-behavior: auto; }
+  .status-pill .dot { animation: none; }
+}
+
+/* ============ SECTIONS ============ */
+section { padding: var(--section-pad) var(--section-pad-x); max-width: 640px; margin: 0 auto; }
+.sec-kicker {
+  font-family: var(--font-sub); font-weight: 700;
+  font-size: 14px; letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--pink-soft); margin-bottom: 4px;
+}
+.sec-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 9vw, 44px);
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--cream); line-height: 1.05;
+  margin-bottom: 14px;
+}
+.sec-title .accent { color: var(--gold); }
+
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* ============ ABOUT ============ */
+.badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 4px; }
+.badge {
+  font-family: var(--font-sub); font-weight: 600;
+  font-size: 15px; letter-spacing: 1px; text-transform: uppercase;
+  padding: 7px 13px; border-radius: 999px;
+  background: var(--panel); border: 1px solid var(--line);
+  color: var(--gold-soft);
+}
+.about p { color: var(--muted); margin-bottom: 12px; }
+.about p b, .about p strong { color: var(--cream); font-weight: 600; }
+
+/* ============ MENU ============ */
+.menu-tabs {
+  display: flex; gap: 8px; overflow-x: auto;
+  padding: 4px 2px 12px;
+  scrollbar-width: none;
+  position: sticky;
+  top: calc(var(--nav-height) + var(--safe-top));
+  background: linear-gradient(180deg, var(--bg) 75%, transparent);
+  z-index: 5;
+}
+.menu-tabs::-webkit-scrollbar { display: none; }
+.menu-tab {
+  flex: none;
+  font-family: var(--font-sub); font-weight: 700;
+  font-size: 16px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted);
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 999px; padding: 9px 18px;
+  cursor: pointer; transition: all 0.2s var(--ease-out);
+}
+.menu-tab[aria-selected="true"] {
+  color: #14100b;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  border-color: transparent;
+  box-shadow: 0 2px 12px rgba(242, 168, 29, 0.35);
+}
+.menu-panel { display: none; }
+.menu-panel.active { display: block; animation: fadeUp 0.4s var(--ease-out); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.menu-photo {
+  border-radius: 18px; overflow: hidden;
+  margin-bottom: 14px; position: relative;
+  box-shadow: var(--shadow-deep);
+}
+.menu-photo img { width: 100%; height: 190px; object-fit: cover; }
+.menu-photo figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 24px 14px 10px;
+  font-family: var(--font-sub); font-weight: 700;
+  font-size: 16px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cream);
+  background: linear-gradient(180deg, transparent, rgba(13,9,6,0.9));
+}
+.menu-item {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  padding: 13px 2px;
+  border-bottom: 1px dashed var(--line);
+}
+.menu-item:last-child { border-bottom: none; }
+.mi-name {
+  font-family: var(--font-sub); font-weight: 700;
+  font-size: 18px; letter-spacing: 0.8px;
+  color: var(--cream); text-transform: uppercase;
+}
+.mi-desc { font-size: 13.5px; color: var(--muted); margin-top: 2px; line-height: 1.5; }
+.mi-price {
+  font-family: var(--font-sub); font-weight: 700; font-size: 18px;
+  color: var(--gold); flex: none;
+}
+.menu-note {
+  margin-top: 16px; font-size: 12.5px; color: var(--muted-2);
+  border-left: 3px solid var(--gold-2);
+  padding: 6px 12px; background: var(--panel); border-radius: 0 10px 10px 0;
+}
+
+/* ============ LA NOCHE ============ */
+.noche { position: relative; }
+.night-card {
+  border-radius: 18px;
+  padding: 20px 18px;
+  margin-bottom: 12px;
+  background:
+    radial-gradient(140% 120% at 100% 0%, rgba(255, 45, 120, 0.16), transparent 55%),
+    var(--panel);
+  border: 1px solid var(--line);
+}
+.night-card h3 {
+  font-family: var(--font-sub); font-weight: 700;
+  font-size: 20px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--pink-soft); margin-bottom: 4px;
+}
+.night-card p { color: var(--muted); font-size: 14.5px; }
+.night-card p b { color: var(--cream); font-weight: 600; }
+
+/* ============ REVIEWS ============ */
+.stars { color: var(--gold); letter-spacing: 3px; font-size: 15px; }
+.review {
+  border-radius: 18px; padding: 18px;
+  background: var(--panel); border: 1px solid var(--line);
+  margin-bottom: 12px;
+}
+.review blockquote { font-size: 15px; color: var(--text); font-style: italic; }
+.review cite { display: block; margin-top: 8px; font-size: 12.5px; color: var(--muted-2); font-style: normal; }
+.rating-line {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  font-family: var(--font-sub); font-weight: 700; font-size: 18px;
+  letter-spacing: 1px; color: var(--cream);
+}
+
+/* ============ GALLERY ============ */
+.gallery {
+  display: flex; gap: 12px; overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 2px 10px;
+  scrollbar-width: none;
+}
+.gallery::-webkit-scrollbar { display: none; }
+.gallery figure {
+  flex: 0 0 78%;
+  scroll-snap-align: center;
+  border-radius: 18px; overflow: hidden;
+  box-shadow: var(--shadow-deep);
+}
+.gallery img { width: 100%; height: 230px; object-fit: cover; }
+
+/* ============ VISIT ============ */
+.visit-card {
+  border-radius: 18px; overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  margin-bottom: 14px;
+}
+.visit-card .map-wrap { position: relative; height: 220px; }
+.visit-card iframe { width: 100%; height: 100%; border: 0; filter: grayscale(35%) contrast(1.05); }
+.visit-body { padding: 18px; }
+.visit-row {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px dashed var(--line);
+}
+.visit-row:last-child { border-bottom: none; }
+.visit-row .ico { font-size: 18px; flex: none; width: 26px; text-align: center; }
+.visit-row h4 {
+  font-family: var(--font-sub); font-weight: 700;
+  font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.visit-row p { font-size: 14.5px; color: var(--muted); }
+.visit-row a { color: var(--cream); text-decoration-color: var(--gold-2); }
+.hours-grid { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; font-size: 14.5px; color: var(--muted); }
+.hours-grid .today { color: var(--lime); font-weight: 600; }
+
+/* ============ FOOTER ============ */
+footer {
+  padding: 28px var(--section-pad-x) 20px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  max-width: 640px; margin: 0 auto;
+}
+footer .fbrand {
+  font-family: var(--font-display); font-size: 22px;
+  letter-spacing: 2px; color: var(--gold); text-transform: uppercase;
+}
+footer p { font-size: 12px; color: var(--muted-2); margin-top: 8px; line-height: 1.7; }
+footer a { color: var(--muted); }
+
+/* ============ BOTTOM TABS ============ */
+.tabbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  display: flex;
+  padding-bottom: var(--safe-bot);
+  background: rgba(13, 9, 6, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(242, 168, 29, 0.2);
+}
+.tabbar a {
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 9px 4px 7px;
+  text-decoration: none;
+  font-family: var(--font-sub); font-weight: 600;
+  font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--muted-2);
+  transition: color 0.2s;
+}
+.tabbar a .t-ico { font-size: 19px; line-height: 1; filter: grayscale(1) opacity(0.65); transition: filter 0.2s; }
+.tabbar a.active { color: var(--gold); }
+.tabbar a.active .t-ico { filter: none; }
+
+/* Larger screens: center content, relax hero */
+@media (min-width: 700px) {
+  :root { --section-pad: 64px; --section-pad-x: 24px; }
+  .hero { min-height: 640px; }
+  .gallery figure { flex-basis: 46%; }
+  .menu-photo img { height: 240px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP NAV ============ -->
+<nav class="nav" aria-label="Top navigation">
+  <a class="nav-brand" href="#inicio"><span class="paw" aria-hidden="true"></span>El Jaguar</a>
+  <a class="nav-call" href="tel:+19177899541">☎ Call</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="inicio">
+  <div class="hero-bg" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Trompo_de_tacos_al_pastor.jpg?width=1200')" role="img" aria-label="Al pastor trompo turning over the fire"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker">Cantina · Cocina · Baile</p>
+    <h1>El <span class="accent">Jaguar</span></h1>
+    <p class="hero-sub">Restaurant &amp; Bar · <b>Avenue U, Gravesend</b> · Brooklyn</p>
+    <p class="status-pill" id="statusPill"><span class="dot" aria-hidden="true"></span><span id="statusText">Open nightly · 6 PM – 4 AM</span></p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="#menu">See the Menu</a>
+      <a class="btn btn-pink" href="tel:+19177899541">Call Now</a>
+      <a class="btn btn-ghost" href="https://maps.google.com/?q=El+Jaguar+Restaurant+%26+Bar,+158+Avenue+U,+Brooklyn,+NY+11223" target="_blank" rel="noopener">Directions</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <span>Margaritas</span><span>◆</span><span>Micheladas</span><span>◆</span><span>Tacos</span><span>◆</span><span>Música en vivo</span><span>◆</span><span>Open til 4 AM</span><span>◆</span><span>Cerveza fría</span><span>◆</span><span>Baile</span><span>◆</span>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="about reveal" id="lacasa" aria-labelledby="about-title">
+  <p class="sec-kicker">La Casa</p>
+  <h2 class="sec-title" id="about-title">The night starts <span class="accent">on Avenue U</span></h2>
+  <p>When the rest of Gravesend closes up, <strong>El Jaguar wakes up</strong>. We're a Mexican cantina in the old-school sense — a kitchen turning out tacos, gringas and tortas until late, a bar pouring margaritas and ice-cold cervezas, and a floor that fills up when the música starts.</p>
+  <p>No reservations, no dress code, no rush. Come for dinner at six, stay for the baile at midnight. <strong>Aquí se come, se canta y se baila.</strong></p>
+  <div class="badges">
+    <span class="badge">★ 4.4 rated</span>
+    <span class="badge">Open til 4 AM</span>
+    <span class="badge">Música en vivo</span>
+    <span class="badge">Full bar</span>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section id="menu" aria-labelledby="menu-title">
+  <p class="sec-kicker reveal">La Cocina</p>
+  <h2 class="sec-title reveal" id="menu-title">The <span class="accent">menu</span></h2>
+
+  <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+    <button class="menu-tab" role="tab" aria-selected="true" aria-controls="panel-antojitos" id="tab-antojitos">Antojitos</button>
+    <button class="menu-tab" role="tab" aria-selected="false" aria-controls="panel-tacos" id="tab-tacos">Tacos y Más</button>
+    <button class="menu-tab" role="tab" aria-selected="false" aria-controls="panel-platos" id="tab-platos">Platos</button>
+    <button class="menu-tab" role="tab" aria-selected="false" aria-controls="panel-barra" id="tab-barra">La Barra</button>
+  </div>
+
+  <!-- Antojitos -->
+  <div class="menu-panel active" id="panel-antojitos" role="tabpanel" aria-labelledby="tab-antojitos">
+    <div class="menu-item">
+      <div><div class="mi-name">Guacamole y Totopos</div><p class="mi-desc">Smashed avocado, lime, cilantro, house-fried chips</p></div>
+      <div class="mi-price">$9</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Nachos El Jaguar</div><p class="mi-desc">Loaded with beans, cheese, crema, pico and your choice of meat</p></div>
+      <div class="mi-price">$12</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Quesadilla</div><p class="mi-desc">Hand-pressed tortilla, Oaxaca cheese, salsa verde</p></div>
+      <div class="mi-price">$8</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Elote</div><p class="mi-desc">Grilled corn, mayo, cotija, chile en polvo</p></div>
+      <div class="mi-price">$5</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Alitas Habanero-Lima</div><p class="mi-desc">Wings tossed in habanero-lime glaze — pairs with a cold one</p></div>
+      <div class="mi-price">$11</div>
+    </div>
+  </div>
+
+  <!-- Tacos -->
+  <div class="menu-panel" id="panel-tacos" role="tabpanel" aria-labelledby="tab-tacos" hidden>
+    <figure class="menu-photo">
+      <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Variety_of_tacos.jpg?width=800" alt="A spread of assorted street tacos" />
+      <figcaption>Tacos callejeros</figcaption>
+    </figure>
+    <div class="menu-item">
+      <div><div class="mi-name">Tacos</div><p class="mi-desc">Al pastor · bistec · carnitas · pollo · lengua — onion, cilantro, salsa</p></div>
+      <div class="mi-price">$4 ea</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Quesabirria + Consomé</div><p class="mi-desc">Crispy cheese-crusted birria tacos with dipping broth</p></div>
+      <div class="mi-price">$13</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Gringas al Pastor</div><p class="mi-desc">Flour tortilla, melted cheese, trompo-shaved pastor, piña</p></div>
+      <div class="mi-price">$10</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Mulitas</div><p class="mi-desc">Griddled double-tortilla stack with cheese and your meat</p></div>
+      <div class="mi-price">$9</div>
+    </div>
+  </div>
+
+  <!-- Platos -->
+  <div class="menu-panel" id="panel-platos" role="tabpanel" aria-labelledby="tab-platos" hidden>
+    <figure class="menu-photo">
+      <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Chilaquiles_Rojos.JPG?width=800" alt="Chilaquiles rojos topped with crema and cheese" />
+      <figcaption>Platos fuertes</figcaption>
+    </figure>
+    <div class="menu-item">
+      <div><div class="mi-name">Torta</div><p class="mi-desc">Milanesa, al pastor or cubana — telera bread, beans, avocado</p></div>
+      <div class="mi-price">$10</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Burrito</div><p class="mi-desc">Rice, beans, cheese, crema, choice of meat</p></div>
+      <div class="mi-price">$11</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Chilaquiles Rojos</div><p class="mi-desc">Tortilla chips in red salsa, crema, cotija, egg or meat</p></div>
+      <div class="mi-price">$11</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Enchiladas Verdes</div><p class="mi-desc">Three rolled tortillas, salsa verde, chicken, crema</p></div>
+      <div class="mi-price">$13</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Bistec a la Mexicana</div><p class="mi-desc">Steak sautéed with jalapeño, tomato and onion, rice and beans</p></div>
+      <div class="mi-price">$16</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Bacon Cheeseburger</div><p class="mi-desc">The late-night classic, with fries</p></div>
+      <div class="mi-price">$10</div>
+    </div>
+  </div>
+
+  <!-- La Barra -->
+  <div class="menu-panel" id="panel-barra" role="tabpanel" aria-labelledby="tab-barra" hidden>
+    <div class="menu-item">
+      <div><div class="mi-name">Margarita Clásica</div><p class="mi-desc">Rocks or frozen, salted rim — la casa favorite</p></div>
+      <div class="mi-price">$10</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Margarita de Sabores</div><p class="mi-desc">Mango, tamarindo, fresa — con chile rim if you dare</p></div>
+      <div class="mi-price">$12</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Michelada</div><p class="mi-desc">Beer, lime, clamato, salsas, escarchado rim</p></div>
+      <div class="mi-price">$9</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Paloma</div><p class="mi-desc">Tequila, grapefruit soda, lime, sal</p></div>
+      <div class="mi-price">$10</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Cervezas Mexicanas</div><p class="mi-desc">Modelo · Corona · Victoria · Pacífico — always cold</p></div>
+      <div class="mi-price">$6</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Cubetazo</div><p class="mi-desc">Bucket of 5 beers on ice — for the table</p></div>
+      <div class="mi-price">$25</div>
+    </div>
+    <div class="menu-item">
+      <div><div class="mi-name">Tequila y Mezcal</div><p class="mi-desc">Shots and sippers, ask the bar for the lineup</p></div>
+      <div class="mi-price">$8+</div>
+    </div>
+  </div>
+
+  <p class="menu-note">Sample menu for this demo site — items and prices are illustrative. Call <a href="tel:+19177899541" style="color:var(--gold-soft)">(917) 789-9541</a> for tonight's menu and specials.</p>
+</section>
+
+<!-- ============ LA NOCHE ============ -->
+<section class="noche" id="lanoche" aria-labelledby="noche-title">
+  <p class="sec-kicker reveal">La Noche</p>
+  <h2 class="sec-title reveal" id="noche-title">Música, baile <span class="accent">y ambiente</span></h2>
+  <div class="night-card reveal">
+    <h3>♪ Música en Vivo</h3>
+    <p>Weekends bring the <b>live música</b> — norteño, banda y cumbia. When the band plays, the tables move and the floor opens up.</p>
+  </div>
+  <div class="night-card reveal">
+    <h3>◆ Hasta las 4 AM</h3>
+    <p>The kitchen and the bar run <b>every night from 6 PM to 4 AM</b>. Late shift? Post-party hunger? La cocina te espera.</p>
+  </div>
+  <div class="night-card reveal">
+    <h3>♥ Cantina de Barrio</h3>
+    <p>A true neighborhood cantina — <b>affordable drinks</b>, big plates, and regulars who'll pull up a chair for you.</p>
+  </div>
+
+  <div class="rating-line reveal" style="margin-top:22px">
+    <span class="stars" aria-hidden="true">★★★★<span style="opacity:.45">★</span></span> 4.4 · What people say
+  </div>
+  <div class="review reveal">
+    <blockquote>"The margaritas are on point — and the atmosphere is lively all night."</blockquote>
+    <cite>— Guest review</cite>
+  </div>
+  <div class="review reveal">
+    <blockquote>"A real cantina: music, cold beer, dancing, and good food at good prices."</blockquote>
+    <cite>— Guest review</cite>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="galeria" aria-labelledby="gal-title">
+  <p class="sec-kicker reveal">La Comida</p>
+  <h2 class="sec-title reveal" id="gal-title">Fresh off <span class="accent">the trompo</span></h2>
+  <div class="gallery reveal" aria-label="Food gallery — swipe to browse">
+    <figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Trompo_de_tacos_al_pastor.jpg?width=700" alt="Al pastor trompo" /></figure>
+    <figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Birria_tacos.jpg?width=700" alt="Birria tacos with consomé" /></figure>
+    <figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tacos_de_bistec_adobado.jpg?width=700" alt="Tacos de bistec adobado" /></figure>
+    <figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mexico.Tacos.01.jpg?width=700" alt="Street tacos with salsas" /></figure>
+    <figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Variety_of_tacos.jpg?width=700" alt="A variety of tacos" /></figure>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section id="visita" aria-labelledby="visit-title">
+  <p class="sec-kicker reveal">Visítanos</p>
+  <h2 class="sec-title reveal" id="visit-title">Find <span class="accent">the jaguar</span></h2>
+
+  <div class="visit-card reveal">
+    <div class="map-wrap">
+      <iframe title="Map — El Jaguar Restaurant &amp; Bar, 158 Avenue U, Brooklyn" loading="lazy"
+        src="https://maps.google.com/maps?q=158%20Avenue%20U%2C%20Brooklyn%2C%20NY%2011223&z=16&output=embed"
+        referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <div class="visit-body">
+      <div class="visit-row">
+        <span class="ico" aria-hidden="true">📍</span>
+        <div>
+          <h4>Address</h4>
+          <p><a href="https://maps.google.com/?q=158+Avenue+U,+Brooklyn,+NY+11223" target="_blank" rel="noopener">158 Avenue U, Brooklyn, NY 11223</a><br>In the heart of Gravesend</p>
+        </div>
+      </div>
+      <div class="visit-row">
+        <span class="ico" aria-hidden="true">☎</span>
+        <div>
+          <h4>Phone</h4>
+          <p><a href="tel:+19177899541">(917) 789-9541</a></p>
+        </div>
+      </div>
+      <div class="visit-row">
+        <span class="ico" aria-hidden="true">🕘</span>
+        <div style="flex:1">
+          <h4>Hours</h4>
+          <div class="hours-grid" id="hoursGrid">
+            <span>Every night</span><span>6:00 PM – 4:00 AM</span>
+          </div>
+        </div>
+      </div>
+      <div class="visit-row">
+        <span class="ico" aria-hidden="true">🚇</span>
+        <div>
+          <h4>Getting here</h4>
+          <p>N train to Avenue U (short walk) · B3 bus along Avenue U · F train to Avenue U at McDonald Ave</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="btn btn-gold reveal" style="width:100%" href="tel:+19177899541">☎ Call (917) 789-9541</a>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <p class="fbrand">El Jaguar</p>
+  <p>Restaurant &amp; Bar · 158 Avenue U, Brooklyn, NY 11223 · <a href="tel:+19177899541">(917) 789-9541</a><br>
+  Open nightly 6 PM – 4 AM</p>
+  <p style="margin-top:14px">Demo website concept — not the official site of El Jaguar Restaurant &amp; Bar.<br>
+  Photos via Wikimedia Commons (illustrative). Menu items and prices are placeholders.</p>
+</footer>
+
+<!-- ============ BOTTOM TABS ============ -->
+<nav class="tabbar" aria-label="Section navigation">
+  <a href="#inicio" class="active" data-section="inicio"><span class="t-ico" aria-hidden="true">🏠</span>Inicio</a>
+  <a href="#menu" data-section="menu"><span class="t-ico" aria-hidden="true">🌮</span>Menú</a>
+  <a href="#lanoche" data-section="lanoche"><span class="t-ico" aria-hidden="true">🎶</span>La Noche</a>
+  <a href="#visita" data-section="visita"><span class="t-ico" aria-hidden="true">📍</span>Visita</a>
+</nav>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---- Open/closed status (open nightly 6 PM – 4 AM, America/New_York) ---- */
+  function updateStatus() {
+    var pill = document.getElementById("statusPill");
+    var txt = document.getElementById("statusText");
+    if (!pill || !txt) return;
+    var now;
+    try {
+      now = new Date(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }));
+    } catch (e) {
+      now = new Date();
+    }
+    var mins = now.getHours() * 60 + now.getMinutes();
+    // Open 18:00–24:00 and 0:00–4:00
+    var open = mins >= 18 * 60 || mins < 4 * 60;
+    pill.classList.toggle("closed", !open);
+    if (open) {
+      txt.textContent = mins >= 18 * 60
+        ? "Open now · til 4 AM"
+        : "Open now · late-night til 4 AM";
+    } else {
+      txt.textContent = "Opens tonight at 6 PM";
+    }
+  }
+  updateStatus();
+  setInterval(updateStatus, 60000);
+
+  /* ---- Menu tabs ---- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".menu-tab"));
+  var panels = Array.prototype.slice.call(document.querySelectorAll(".menu-panel"));
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      tabs.forEach(function (t) { t.setAttribute("aria-selected", t === tab ? "true" : "false"); });
+      panels.forEach(function (p) {
+        var on = p.id === tab.getAttribute("aria-controls");
+        p.classList.toggle("active", on);
+        if (on) { p.removeAttribute("hidden"); } else { p.setAttribute("hidden", ""); }
+      });
+      tab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    });
+  });
+
+  /* ---- Duplicate ticker content for seamless loop ---- */
+  var track = document.getElementById("tickerTrack");
+  if (track) { track.innerHTML += track.innerHTML; }
+
+  /* ---- Reveal on scroll ---- */
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+  }
+
+  /* ---- Scrollspy for bottom tabs ---- */
+  var tabLinks = Array.prototype.slice.call(document.querySelectorAll(".tabbar a"));
+  var sections = ["inicio", "menu", "lanoche", "visita"]
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+  function spy() {
+    var pos = window.scrollY + window.innerHeight * 0.4;
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.offsetTop <= pos) current = s; });
+    tabLinks.forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("data-section") === current.id);
+    });
+  }
+  var ticking = false;
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(function () { spy(); ticking = false; });
+    }
+  }, { passive: true });
+  spy();
+})();
+</script>
+</body>
+</html>

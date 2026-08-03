@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0f1a13" />
+<meta name="description" content="Hops Hill at Atlantic — 16 rotating East Coast taps, a serious sour list and a backyard, on Atlantic Avenue in Boerum Hill, Brooklyn." />
+<title>Hops Hill at Atlantic | Craft Beer &amp; Backyard | Boerum Hill, Brooklyn</title>
+
+<meta property="og:title" content="Hops Hill at Atlantic — Craft Beer, Boerum Hill" />
+<meta property="og:description" content="16 rotating taps, an unusually deep sour list, and a backyard worth the walk. 533 Atlantic Ave, Brooklyn." />
+<meta property="og:type" content="bar" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================= RESET ============================= */
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  /* Taproom: dark hop green, amber beer, cream head */
+  --deep:     #0f1a13;
+  --deep-2:   #142218;
+  --panel:    #1a2b1f;
+  --panel-2:  #223629;
+  --rule:     #2f4a37;
+  --hop:      #7cb342;
+  --hop-hi:   #a2d65c;
+  --amber:    #e8a33d;
+  --amber-hi: #ffc76b;
+  --amber-lo: #b87a1e;
+  --sour:     #e05a7d;
+  --cream:    #f6f1e4;
+  --muted:    #9db3a3;
+  --muted-2:  #71887a;
+  --live:     #7cb342;
+  --shut:     #c9584c;
+
+  --nav-h: 54px;
+  --pad-x: 18px;
+  --pad-y: 52px;
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+
+  --display: 'Archivo Black', 'Arial Black', sans-serif;
+  --body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--nav-h) + var(--safe-t) + 10px);
+}
+
+body {
+  font-family: var(--body);
+  background: var(--deep);
+  color: var(--cream);
+  line-height: 1.65;
+  font-size: 16px;
+  overflow-x: hidden;
+  min-height: 100vh; min-height: 100dvh;
+  padding-top: calc(var(--nav-h) + var(--safe-t));
+  padding-bottom: calc(62px + var(--safe-b));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ============================= MOTION ============================= */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal[data-d="1"] { transition-delay: .08s }
+.reveal[data-d="2"] { transition-delay: .16s }
+.reveal[data-d="3"] { transition-delay: .24s }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+  .bubble, .marquee-track, .status .dot, .hero-glow { animation: none !important; }
+  .fill span { transition: none !important; }
+}
+
+/* ============================= NAV ============================= */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 60;
+  height: calc(var(--nav-h) + var(--safe-t));
+  padding: var(--safe-t) 12px 0 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(15, 26, 19, .88);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(124, 179, 66, .22);
+}
+.nav-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+.nav-mark {
+  width: 26px; height: 26px; flex: none;
+  display: grid; place-items: center;
+  background: linear-gradient(160deg, var(--hop-hi), var(--hop));
+  border-radius: 7px;
+  font-family: var(--display); font-size: 13px; color: var(--deep);
+}
+.nav-name {
+  font-family: var(--display); font-size: 16px;
+  letter-spacing: .01em; color: var(--cream);
+}
+.nav-call {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--deep);
+  background: linear-gradient(160deg, var(--amber-hi), var(--amber));
+  padding: 9px 15px; border-radius: 999px; text-decoration: none;
+  transition: transform .2s var(--spring);
+}
+.nav-call:active { transform: scale(.94); }
+
+/* ============================= HERO ============================= */
+.hero {
+  position: relative; overflow: hidden;
+  min-height: calc(100vh - var(--nav-h)); min-height: calc(100dvh - var(--nav-h));
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 34px var(--pad-x) 30px;
+}
+.hero-glow {
+  position: absolute; inset: -20% -30% auto -30%; height: 80%; z-index: 0;
+  background: radial-gradient(closest-side, rgba(232, 163, 61, .22), transparent 72%);
+  animation: drift 14s ease-in-out infinite alternate;
+}
+@keyframes drift { from { transform: translate3d(-4%, -2%, 0) } to { transform: translate3d(6%, 4%, 0) } }
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(180deg, transparent 40%, var(--deep) 96%);
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 2; }
+
+/* rising bubbles */
+.bubbles { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.bubble {
+  position: absolute; bottom: -40px; border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%,
+    rgba(255, 248, 230, .95) 0%,
+    rgba(255, 199, 107, .55) 42%,
+    rgba(232, 163, 61, .18) 74%,
+    transparent 88%);
+  box-shadow: 0 0 10px rgba(255, 199, 107, .35);
+  animation: rise linear infinite;
+}
+@keyframes rise {
+  0%   { transform: translateY(0) translateX(0) scale(.7); opacity: 0 }
+  12%  { opacity: .85 }
+  85%  { opacity: .6 }
+  100% { transform: translateY(-104vh) translateX(var(--dx, 12px)) scale(1.1); opacity: 0 }
+}
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .28em; text-transform: uppercase;
+  color: var(--hop-hi);
+}
+.eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--hop); }
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(50px, 17vw, 108px);
+  line-height: .88; letter-spacing: -.02em;
+  text-transform: uppercase;
+  margin: 12px 0 0;
+}
+.hero h1 .pour {
+  display: block;
+  background: linear-gradient(180deg, var(--amber-hi) 0%, var(--amber) 55%, var(--amber-lo) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: var(--amber);
+}
+.hero-sub {
+  margin-top: 14px; font-size: 16px; color: var(--muted); max-width: 30ch;
+}
+.hero-sub b { color: var(--cream); font-weight: 600; }
+
+.status {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 18px; padding: 8px 15px;
+  border: 1px solid var(--rule); border-radius: 999px;
+  background: rgba(26, 43, 31, .72);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase;
+}
+.status .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--live); box-shadow: 0 0 10px var(--live);
+  animation: pulse 2s ease-in-out infinite;
+}
+.status.shut .dot { background: var(--shut); box-shadow: 0 0 10px var(--shut); animation: none; }
+@keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: .32 } }
+
+.hero-cta { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+.btn {
+  flex: 1 1 140px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  padding: 15px 18px; border-radius: 12px;
+  text-decoration: none; border: 1.5px solid transparent;
+  transition: transform .18s var(--spring), background .25s;
+}
+.btn:active { transform: scale(.97); }
+.btn-amber { background: linear-gradient(160deg, var(--amber-hi), var(--amber-lo)); color: #23180a; box-shadow: 0 8px 26px rgba(232,163,61,.26); }
+.btn-hop   { background: linear-gradient(160deg, var(--hop-hi), var(--hop)); color: #12210d; box-shadow: 0 8px 26px rgba(124,179,66,.24); }
+.btn-line  { border-color: var(--rule); color: var(--cream); }
+
+/* stat strip */
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; margin-top: 26px;
+  background: var(--rule); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden;
+}
+.stat { background: var(--deep-2); padding: 14px 6px; text-align: center; }
+.stat b {
+  display: block; font-family: var(--display);
+  font-size: clamp(20px, 6vw, 28px); color: var(--amber); line-height: 1;
+}
+.stat span {
+  display: block; margin-top: 5px;
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-2);
+}
+
+/* ============================= MARQUEE ============================= */
+.marquee {
+  overflow: hidden; padding: 11px 0;
+  border-block: 1px solid rgba(124,179,66,.28);
+  background: linear-gradient(90deg, rgba(124,179,66,.09), rgba(232,163,61,.09));
+}
+.marquee-track { display: flex; width: max-content; animation: slide 30s linear infinite; }
+.marquee span {
+  font-family: var(--display); font-size: 15px;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--hop-hi); white-space: nowrap; padding: 0 15px;
+}
+.marquee span:nth-child(4n+2) { color: var(--amber); }
+.marquee span:nth-child(4n+4) { color: var(--sour); }
+@keyframes slide { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+
+/* ============================= SECTIONS ============================= */
+section { padding: var(--pad-y) var(--pad-x); max-width: 660px; margin: 0 auto; }
+.kicker {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .26em; text-transform: uppercase; color: var(--hop-hi);
+}
+.title {
+  font-family: var(--display);
+  font-size: clamp(30px, 8.6vw, 46px);
+  line-height: 1.02; letter-spacing: -.015em; text-transform: uppercase;
+  margin: 8px 0 16px;
+}
+.title .amber { color: var(--amber); }
+.lede { color: var(--muted); font-size: 15.5px; margin-bottom: 14px; }
+.lede b { color: var(--cream); font-weight: 600; }
+
+/* ---- Taps ---- */
+.tap {
+  border: 1px solid var(--rule); border-radius: 14px;
+  background: linear-gradient(180deg, var(--panel), var(--deep-2));
+  padding: 15px 16px; margin-bottom: 10px;
+}
+.tap-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.tap-name { font-weight: 600; font-size: 15.5px; color: var(--cream); }
+.tap-style { font-size: 12.5px; color: var(--muted-2); margin-top: 1px; }
+.tap-abv { font-family: var(--display); font-size: 15px; color: var(--amber); flex: none; }
+.fill {
+  height: 5px; border-radius: 99px; background: var(--rule);
+  margin-top: 11px; overflow: hidden;
+}
+.fill span {
+  display: block; height: 100%; width: 0; border-radius: 99px;
+  background: linear-gradient(90deg, var(--amber-lo), var(--amber-hi));
+  transition: width 1.1s var(--ease);
+}
+.tap.sour .fill span { background: linear-gradient(90deg, #8e2f4a, var(--sour)); }
+.tap.sour .tap-abv { color: var(--sour); }
+.tap.hoppy .fill span { background: linear-gradient(90deg, #4c7a24, var(--hop-hi)); }
+.tap.hoppy .tap-abv { color: var(--hop-hi); }
+.fill-label {
+  display: flex; justify-content: space-between;
+  font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted-2); margin-top: 6px;
+}
+
+.note {
+  margin-top: 16px; padding: 12px 14px;
+  border-left: 3px solid var(--amber-lo); border-radius: 0 10px 10px 0;
+  background: var(--panel); font-size: 12px; color: var(--muted-2); line-height: 1.65;
+}
+.note a { color: var(--amber-hi); }
+
+/* ---- Feature cards ---- */
+.feat {
+  border: 1px solid var(--rule); border-radius: 16px;
+  padding: 20px 18px; margin-bottom: 11px;
+  background:
+    radial-gradient(120% 110% at 100% 0%, rgba(124,179,66,.10), transparent 58%),
+    var(--panel);
+}
+.feat h3 {
+  font-family: var(--display); font-size: 19px;
+  text-transform: uppercase; letter-spacing: -.01em;
+  color: var(--hop-hi); margin-bottom: 5px;
+}
+.feat p { font-size: 14.5px; color: var(--muted); }
+.feat p b { color: var(--cream); font-weight: 600; }
+
+/* ---- Know ---- */
+.know { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.know div {
+  border: 1px solid var(--rule); border-radius: 13px;
+  padding: 15px 13px; background: var(--deep-2);
+}
+.know dt {
+  font-family: var(--display); font-size: 13px;
+  text-transform: uppercase; color: var(--amber); margin-bottom: 3px;
+}
+.know dd { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* ---- Quotes ---- */
+.quote {
+  border-left: 3px solid var(--hop);
+  padding: 4px 0 4px 16px; margin-bottom: 18px;
+}
+.quote blockquote { font-size: 16px; color: var(--cream); line-height: 1.55; }
+.quote cite {
+  display: block; margin-top: 7px; font-style: normal;
+  font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted-2);
+}
+
+/* ---- Visit ---- */
+.map { border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; height: 220px; margin-bottom: 18px; }
+.map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(60%) contrast(1.05) brightness(.92); }
+.row { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+.row:last-of-type { border-bottom: 0; }
+.row dt {
+  flex: 0 0 74px; font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--muted-2); padding-top: 4px;
+}
+.row dd { flex: 1; font-size: 15px; color: var(--cream); }
+.row dd small { display: block; font-size: 13px; color: var(--muted); margin-top: 3px; }
+.row a { color: var(--cream); text-decoration-color: var(--amber-lo); text-underline-offset: 3px; }
+.hrow { display: flex; justify-content: space-between; gap: 10px; font-size: 14.5px; }
+.hrow + .hrow { margin-top: 3px; }
+.hrow .d { color: var(--muted); }
+.hrow.on .d, .hrow.on .t { color: var(--hop-hi); font-weight: 600; }
+
+/* ============================= FOOTER ============================= */
+footer {
+  text-align: center; padding: 40px var(--pad-x) 26px;
+  border-top: 1px solid var(--rule); max-width: 660px; margin: 0 auto;
+}
+footer .fmark {
+  width: 46px; height: 46px; margin: 0 auto 14px;
+  display: grid; place-items: center; border-radius: 12px;
+  background: linear-gradient(160deg, var(--hop-hi), var(--hop));
+  font-family: var(--display); font-size: 20px; color: var(--deep);
+}
+footer .fname { font-family: var(--display); font-size: 22px; text-transform: uppercase; }
+footer .fmeta { font-size: 13px; color: var(--muted); margin-top: 9px; line-height: 1.9; }
+footer .fine { font-size: 10.5px; color: var(--muted-2); margin-top: 18px; line-height: 1.8; }
+footer a { color: var(--muted); }
+
+/* ============================= TABS ============================= */
+.tabs {
+  position: fixed; inset: auto 0 0 0; z-index: 60;
+  display: flex; padding-bottom: var(--safe-b);
+  background: rgba(15, 26, 19, .95);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(124,179,66,.24);
+}
+.tabs a {
+  flex: 1; text-align: center; padding: 12px 4px 10px;
+  text-decoration: none; font-size: 10px; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--muted-2);
+  border-top: 2px solid transparent;
+  transition: color .25s, border-color .25s;
+}
+.tabs a.on { color: var(--hop-hi); border-top-color: var(--hop); }
+
+@media (min-width: 720px) {
+  :root { --pad-y: 78px; --pad-x: 24px; }
+  .know { grid-template-columns: repeat(4, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <a class="nav-brand" href="#top">
+    <span class="nav-mark" aria-hidden="true">HH</span>
+    <span class="nav-name">Hops Hill</span>
+  </a>
+  <a class="nav-call" href="tel:+13472944992">Call</a>
+</nav>
+
+<!-- ============================= HERO ============================= -->
+<header class="hero" id="top">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+  <p class="eyebrow">Boerum Hill &middot; Atlantic Ave</p>
+  <h1>Hops<span class="pour">Hill</span></h1>
+  <p class="hero-sub"><b>16 rotating taps</b>, an unusually deep sour list, and a backyard worth the walk.</p>
+
+  <p class="status" id="status">
+    <span class="dot" aria-hidden="true"></span>
+    <span id="statusText">Open daily &middot; from 2 PM</span>
+  </p>
+
+  <div class="hero-cta">
+    <a class="btn btn-amber" href="#taps">See what&rsquo;s on</a>
+    <a class="btn btn-hop" href="tel:+13472944992">Call the bar</a>
+    <a class="btn btn-line" href="#visit">Directions</a>
+  </div>
+
+  <dl class="stats" id="stats">
+    <div class="stat"><b data-count="16">0</b><span>On tap</span></div>
+    <div class="stat"><b data-count="277">0</b><span>Cans</span></div>
+    <div class="stat"><b data-count="141">0</b><span>Bottles</span></div>
+    <div class="stat"><b data-count="12">0</b><span>Crowlers</span></div>
+  </dl>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+    <span>Sours</span><span>&#9670;</span><span>East Coast Taps</span><span>&#9670;</span>
+    <span>Barrel-Aged Stouts</span><span>&#9670;</span><span>The Backyard</span><span>&#9670;</span>
+    <span>Bring Your Own Food</span><span>&#9670;</span><span>Crowlers To Go</span><span>&#9670;</span>
+  </div>
+</div>
+
+<!-- ============================= ABOUT ============================= -->
+<section id="about" aria-labelledby="about-t">
+  <p class="kicker reveal">The Bar</p>
+  <h2 class="title reveal" id="about-t">Beer geeks and <span class="amber">everyone else</span></h2>
+  <p class="lede reveal">Hops Hill came up the hill from Clinton Hill and planted a second flag on Atlantic Avenue. <b>Sixteen taps in constant rotation</b>, weighted toward East Coast breweries, plus a cooler deep enough to lose an afternoon in.</p>
+  <p class="lede reveal" data-d="1">The bartenders know the list cold and will happily walk you through it — but nobody here is precious about it. It stays <b>quiet enough to actually talk</b>, lively enough to feel like a Friday.</p>
+
+  <div class="quote reveal" data-d="2">
+    <blockquote>&ldquo;An unusually good selection of sours, and the bartenders know their stuff.&rdquo;</blockquote>
+    <cite>Guest review</cite>
+  </div>
+  <div class="quote reveal" data-d="3">
+    <blockquote>&ldquo;The backyard is a gem — perfect for summer afternoons or watching the game.&rdquo;</blockquote>
+    <cite>Guest review</cite>
+  </div>
+</section>
+
+<!-- ============================= TAPS ============================= -->
+<section id="taps" aria-labelledby="taps-t">
+  <p class="kicker reveal">The List</p>
+  <h2 class="title reveal" id="taps-t">What&rsquo;s <span class="amber">on now</span></h2>
+  <p class="lede reveal">Sixteen lines, rotating constantly. Here is the shape of a typical board — ask the bar for tonight&rsquo;s.</p>
+
+  <div class="tap sour reveal">
+    <div class="tap-top"><div><div class="tap-name">Barrel-Aged Wild Ale</div><div class="tap-style">Sour &middot; Hudson Valley</div></div><span class="tap-abv">6.8%</span></div>
+    <div class="fill"><span data-fill="72"></span></div>
+    <div class="fill-label"><span>Keg level</span><span>72%</span></div>
+  </div>
+  <div class="tap sour reveal">
+    <div class="tap-top"><div><div class="tap-name">Raspberry Gose</div><div class="tap-style">Fruited sour &middot; Brooklyn</div></div><span class="tap-abv">4.5%</span></div>
+    <div class="fill"><span data-fill="40"></span></div>
+    <div class="fill-label"><span>Keg level</span><span>40% &middot; going fast</span></div>
+  </div>
+  <div class="tap hoppy reveal">
+    <div class="tap-top"><div><div class="tap-name">East Coast Hazy IPA</div><div class="tap-style">NEIPA &middot; Vermont</div></div><span class="tap-abv">6.5%</span></div>
+    <div class="fill"><span data-fill="88"></span></div>
+    <div class="fill-label"><span>Keg level</span><span>88%</span></div>
+  </div>
+  <div class="tap hoppy reveal">
+    <div class="tap-top"><div><div class="tap-name">West Coast Pale</div><div class="tap-style">Pale ale &middot; Upstate NY</div></div><span class="tap-abv">5.2%</span></div>
+    <div class="fill"><span data-fill="61"></span></div>
+    <div class="fill-label"><span>Keg level</span><span>61%</span></div>
+  </div>
+  <div class="tap reveal">
+    <div class="tap-top"><div><div class="tap-name">Bourbon Barrel Stout</div><div class="tap-style">Imperial stout &middot; Maine</div></div><span class="tap-abv">11.2%</span></div>
+    <div class="fill"><span data-fill="55"></span></div>
+    <div class="fill-label"><span>Keg level</span><span>55%</span></div>
+  </div>
+  <div class="tap reveal">
+    <div class="tap-top"><div><div class="tap-name">Czech-Style Pilsner</div><div class="tap-style">Lager &middot; Brooklyn</div></div><span class="tap-abv">4.8%</span></div>
+    <div class="fill"><span data-fill="94"></span></div>
+    <div class="fill-label"><span>Keg level</span><span>94% &middot; fresh keg</span></div>
+  </div>
+
+  <p class="note">Illustrative board for this demo site — the real list rotates constantly and lives on BeerMenus and Untappd. Call <a href="tel:+13472944992">(347) 294-4992</a> for what&rsquo;s pouring tonight.</p>
+</section>
+
+<!-- ============================= THE ROOM ============================= -->
+<section id="room" aria-labelledby="room-t">
+  <p class="kicker reveal">The Room</p>
+  <h2 class="title reveal" id="room-t">Inside, <span class="amber">out back</span></h2>
+
+  <div class="feat reveal">
+    <h3>The Backyard</h3>
+    <p>Opens with the warm weather and stays the best seat in the house. <b>Long afternoons, the game on, nowhere to be.</b></p>
+  </div>
+  <div class="feat reveal" data-d="1">
+    <h3>Bring Your Own Food</h3>
+    <p>No kitchen, no problem — <b>bring in whatever you want</b> from up and down Atlantic Avenue and settle in.</p>
+  </div>
+  <div class="feat reveal" data-d="2">
+    <h3>Not Just Beer</h3>
+    <p>A <b>solid wine list</b> for anyone who isn&rsquo;t drinking beer, plus crowlers and cans to take home.</p>
+  </div>
+
+  <dl class="know reveal" data-d="3" style="margin-top:14px">
+    <div><dt>Outlets</dt><dd>Bring the laptop, stay a while</dd></div>
+    <div><dt>Games</dt><dd>Shown in the yard and inside</dd></div>
+    <div><dt>Prices</dt><dd>Reasonable, for Brooklyn</dd></div>
+    <div><dt>To Go</dt><dd>Crowlers filled to order</dd></div>
+  </dl>
+</section>
+
+<!-- ============================= VISIT ============================= -->
+<section id="visit" aria-labelledby="visit-t">
+  <p class="kicker reveal">Visit</p>
+  <h2 class="title reveal" id="visit-t">533 <span class="amber">Atlantic Ave</span></h2>
+
+  <div class="map reveal">
+    <iframe title="Map — Hops Hill, 533 Atlantic Avenue, Brooklyn" loading="lazy"
+      src="https://maps.google.com/maps?q=533%20Atlantic%20Ave%2C%20Brooklyn%2C%20NY%2011217&z=16&output=embed"
+      referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div>
+
+  <dl class="reveal">
+    <div class="row">
+      <dt>Where</dt>
+      <dd><a href="https://maps.google.com/?q=533+Atlantic+Ave,+Brooklyn,+NY+11217" target="_blank" rel="noopener">533 Atlantic Avenue<br>Brooklyn, NY 11217</a><small>Boerum Hill</small></dd>
+    </div>
+    <div class="row">
+      <dt>Phone</dt>
+      <dd><a href="tel:+13472944992">(347) 294-4992</a></dd>
+    </div>
+    <div class="row">
+      <dt>Hours</dt>
+      <dd id="hours">
+        <div class="hrow" data-d="1"><span class="d">Monday</span><span class="t">2 PM – 12 AM</span></div>
+        <div class="hrow" data-d="2"><span class="d">Tuesday</span><span class="t">2 PM – 12 AM</span></div>
+        <div class="hrow" data-d="3"><span class="d">Wednesday</span><span class="t">2 PM – 12 AM</span></div>
+        <div class="hrow" data-d="4"><span class="d">Thursday</span><span class="t">2 PM – 12 AM</span></div>
+        <div class="hrow" data-d="5"><span class="d">Friday</span><span class="t">2 PM – 2 AM</span></div>
+        <div class="hrow" data-d="6"><span class="d">Saturday</span><span class="t">12 PM – 2 AM</span></div>
+        <div class="hrow" data-d="0"><span class="d">Sunday</span><span class="t">1 PM – 9 PM</span></div>
+      </dd>
+    </div>
+    <div class="row">
+      <dt>Subway</dt>
+      <dd>Atlantic Av–Barclays Ctr<br><small>2 3 4 5 B D N Q R W &middot; Hoyt–Schermerhorn A C G &middot; Nevins St 2 3 4 5</small></dd>
+    </div>
+  </dl>
+
+  <a class="btn btn-amber reveal" style="width:100%;margin-top:22px" href="tel:+13472944992">Call (347) 294-4992</a>
+</section>
+
+<footer>
+  <div class="fmark" aria-hidden="true">HH</div>
+  <p class="fname">Hops Hill</p>
+  <p class="fmeta">
+    533 Atlantic Avenue &middot; Brooklyn, NY 11217<br>
+    <a href="tel:+13472944992">(347) 294-4992</a><br>
+    Open daily &middot; Boerum Hill
+  </p>
+  <p class="fine">
+    Demo website concept — not the official site of Hops Hill.<br>
+    Tap list and keg levels are illustrative placeholders.<br>
+    Please drink responsibly. 21+ with valid ID.
+  </p>
+</footer>
+
+<nav class="tabs" aria-label="Sections">
+  <a href="#top" class="on" data-s="top">Home</a>
+  <a href="#taps" data-s="taps">Taps</a>
+  <a href="#room" data-s="room">The Room</a>
+  <a href="#visit" data-s="visit">Visit</a>
+</nav>
+
+<script>
+(function () {
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- Hours: Mon-Thu 14-24, Fri 14-26, Sat 12-26, Sun 13-21 ---- */
+  var HOURS = {
+    0: [13, 21], 1: [14, 24], 2: [14, 24], 3: [14, 24],
+    4: [14, 24], 5: [14, 26], 6: [12, 26]
+  };
+  var LABEL = { 0: "9 PM", 1: "midnight", 2: "midnight", 3: "midnight", 4: "midnight", 5: "2 AM", 6: "2 AM" };
+
+  function nyNow() {
+    try { return new Date(new Date().toLocaleString("en-US", { timeZone: "America/New_York" })); }
+    catch (e) { return new Date(); }
+  }
+
+  function refresh() {
+    var pill = document.getElementById("status"), txt = document.getElementById("statusText");
+    if (!pill || !txt) return;
+    var now = nyNow(), day = now.getDay(), h = now.getHours() + now.getMinutes() / 60;
+
+    // a session that runs past midnight belongs to the previous day
+    var prev = (day + 6) % 7, prevRange = HOURS[prev], openDay = day, open = false;
+    if (prevRange[1] > 24 && h < prevRange[1] - 24) { open = true; openDay = prev; }
+    else {
+      var r = HOURS[day];
+      if (h >= r[0] && h < Math.min(r[1], 24)) { open = true; }
+    }
+
+    pill.classList.toggle("shut", !open);
+    if (open) {
+      txt.textContent = "Open now · till " + LABEL[openDay];
+    } else {
+      var r2 = HOURS[day];
+      txt.textContent = h < r2[0]
+        ? "Opens today at " + (r2[0] > 12 ? (r2[0] - 12) + " PM" : r2[0] + " PM")
+        : "Closed · back tomorrow";
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll(".hrow"), function (row) {
+      row.classList.toggle("on", Number(row.getAttribute("data-d")) === openDay);
+    });
+  }
+  refresh();
+  setInterval(refresh, 60000);
+
+  /* ---- Bubbles ---- */
+  if (!reduce) {
+    var host = document.getElementById("bubbles");
+    for (var i = 0; i < 16; i++) {
+      var b = document.createElement("i");
+      var size = 5 + Math.round(Math.random() * 16);
+      b.className = "bubble";
+      b.style.width = b.style.height = size + "px";
+      b.style.left = Math.round(Math.random() * 98) + "%";
+      b.style.animationDuration = (9 + Math.random() * 11).toFixed(1) + "s";
+      b.style.animationDelay = (-Math.random() * 14).toFixed(1) + "s";
+      b.style.setProperty("--dx", (Math.random() * 60 - 30).toFixed(0) + "px");
+      host.appendChild(b);
+    }
+  }
+
+  /* ---- Seamless marquee ---- */
+  var mq = document.getElementById("marquee");
+  if (mq) mq.innerHTML += mq.innerHTML;
+
+  /* ---- Reveal + one-shot animations ---- */
+  function fillBars(scope) {
+    Array.prototype.forEach.call(scope.querySelectorAll(".fill span"), function (s) {
+      s.style.width = s.getAttribute("data-fill") + "%";
+    });
+  }
+
+  function countUp(el) {
+    var target = Number(el.getAttribute("data-count")), t0 = null;
+    if (reduce) { el.textContent = target; return; }
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0) / 1100, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("in");
+        fillBars(e.target);
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    Array.prototype.forEach.call(document.querySelectorAll(".reveal"), function (el) { io.observe(el); });
+
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        Array.prototype.forEach.call(e.target.querySelectorAll("[data-count]"), countUp);
+        so.unobserve(e.target);
+      });
+    }, { threshold: 0.4 });
+    var stats = document.getElementById("stats");
+    if (stats) so.observe(stats);
+  } else {
+    Array.prototype.forEach.call(document.querySelectorAll(".reveal"), function (el) { el.classList.add("in"); });
+    fillBars(document);
+    Array.prototype.forEach.call(document.querySelectorAll("[data-count]"), function (el) {
+      el.textContent = el.getAttribute("data-count");
+    });
+  }
+
+  /* ---- Scrollspy ---- */
+  var links = Array.prototype.slice.call(document.querySelectorAll(".tabs a"));
+  var secs = ["top", "taps", "room", "visit"].map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  function spy() {
+    var mark = window.scrollY + window.innerHeight * 0.4, cur = secs[0];
+    secs.forEach(function (s) { if (s.offsetTop <= mark) cur = s; });
+    links.forEach(function (a) { a.classList.toggle("on", a.getAttribute("data-s") === cur.id); });
+  }
+  var busy = false;
+  window.addEventListener("scroll", function () {
+    if (busy) return;
+    busy = true;
+    requestAnimationFrame(function () { spy(); busy = false; });
+  }, { passive: true });
+  spy();
+})();
+</script>
+</body>
+</html>
